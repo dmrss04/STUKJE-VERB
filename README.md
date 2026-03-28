@@ -1,4 +1,4 @@
-# Verdant Reverb — VST3 Plugin
+# STUKJE VERB — Reverb & Distortion Plugin
 ## Build Guide
 
 ### What you need (all free)
@@ -16,12 +16,12 @@
 git clone https://github.com/juce-framework/JUCE.git
 ```
 
-Place the `JUCE` folder **next to** the `ReverbDistortion` folder so the layout is:
+Place the `JUCE` folder **next to** the `STUKJE-VERB` folder so the layout is:
 
 ```
 Projects/
 ├── JUCE/
-└── ReverbDistortion/
+└── STUKJE-VERB/
     ├── CMakeLists.txt
     └── Source/
         ├── PluginProcessor.h
@@ -35,9 +35,9 @@ Projects/
 ### Step 2 — Build on macOS
 
 ```bash
-cd ReverbDistortion
+cd STUKJE-VERB
 cmake -B build -G Xcode
-open build/ReverbDistortion.xcodeproj
+open build/StukjeVerb.xcodeproj
 # In Xcode: select ReverbDistortion_VST3 scheme → Product → Build
 ```
 
@@ -49,7 +49,7 @@ cmake --build build --config Release
 
 The `.vst3` bundle appears at:
 ```
-build/ReverbDistortion_artefacts/Release/VST3/Verdant Reverb.vst3
+build/ReverbDistortion_artefacts/Release/VST3/STUKJE VERB.vst3
 ```
 
 Copy it to `~/Library/Audio/Plug-Ins/VST3/`
@@ -61,14 +61,14 @@ Copy it to `~/Library/Audio/Plug-Ins/VST3/`
 Open **Developer Command Prompt for VS 2022**:
 
 ```bat
-cd ReverbDistortion
+cd STUKJE-VERB
 cmake -B build -G "Visual Studio 17 2022" -A x64
 cmake --build build --config Release
 ```
 
 The `.vst3` folder appears at:
 ```
-build\ReverbDistortion_artefacts\Release\VST3\Verdant Reverb.vst3
+build\ReverbDistortion_artefacts\Release\VST3\STUKJE VERB.vst3
 ```
 
 Copy it to `C:\Program Files\Common Files\VST3\`
@@ -80,7 +80,7 @@ Copy it to `C:\Program Files\Common Files\VST3\`
 1. Open Ableton Live
 2. Preferences → Plug-ins → enable **VST3 Plug-In Custom Folder** (point to your VST3 folder, or it scans the default location automatically)
 3. Click **Rescan**
-4. Find **Verdant Reverb** in the plug-in browser under VST3
+4. Find **STUKJE VERB** in the plug-in browser under VST3
 5. Drag onto any audio track
 
 ---
@@ -110,13 +110,9 @@ Copy it to `C:\Program Files\Common Files\VST3\`
 - High DRIVE + low TONE = warm, fuzzy reverb tails
 - DIST MIX < 1.0 gives parallel distortion (cleaner shimmer)
 - Stack with a pre-reverb compressor in Ableton for gated-reverb vibes
-- Freeze mode can be added by exposing `reverbParams.freezeMode` — just add a toggle
 
 ---
 
-## Customization ideas (for later)
-- Pre-delay before the reverb (`juce::dsp::DelayLine`)
-- Shimmer reverb (pitch-shift feedback inside the wet signal)
-- Modulation (chorus/flanger on the wet tail)
-- IR convolution reverb via `juce::dsp::Convolution`
-"# STUKJE-VERB" 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
